@@ -1,9 +1,4 @@
--- 1. First create your book_data.sql file with the following code:
-
-DROP DATABASE IF EXISTS book_shop;
-CREATE DATABASE book_shop;
-USE book_shop; 
-
+Use nikita;
 CREATE TABLE books 
 	(
 		book_id INT NOT NULL AUTO_INCREMENT,
@@ -35,10 +30,24 @@ VALUES
 ('Oblivion: Stories', 'David', 'Foster Wallace', 2004, 172, 329),
 ('Consider the Lobster', 'David', 'Foster Wallace', 2005, 92, 343);
 
--- 2. Then source that file
--- source book_data.sql 
+INSERT INTO books
+    (title, author_fname, author_lname, released_year, stock_quantity, pages)
+    VALUES ('10% Happier', 'Dan', 'Harris', 2014, 29, 256), 
+           ('fake_book', 'Freida', 'Harris', 2001, 287, 428),
+           ('Lincoln In The Bardo', 'George', 'Saunders', 2017, 1000, 367);
 
--- 3. Now check your work:
+--  check if its done
+desc books;
 
-DESC books;
-SELECT * FROM books; 
+SELECT title FROM books;
+
+select * from books;
+
+SELECT author_fname, author_lname FROM books;
+
+-- CONCAT(x,y,z) -- from slides
+-- CONCAT(column, anotherColumn) // from slides
+-- CONCAT(author_fname, author_lname)
+-- CONCAT(column, 'text', anotherColumn, 'more text')
+-- CONCAT(author_fname, ' ', author_lname)
+-- CONCAT(author_fname, author_lname); -- invalid syntax
